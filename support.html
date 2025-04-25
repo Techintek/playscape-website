@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & Known Issues - Playscape</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #007aff;
+            --secondary-color: #4cd964;
+            --dark-bg: #111111;
+            --darker-bg: #000000;
+            --light-text: #ffffff;
+            --gray-text: #8e8e93;
+            --card-bg: #1c1c1e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--darker-bg);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            padding-left: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Content Page Styles */
+        .content-page {
+            padding: 60px 0;
+        }
+        
+        .content-container {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 900px;
+        }
+        
+        .content-container h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .content-container h3 {
+            font-size: 22px;
+            margin: 30px 0 15px;
+        }
+        
+        .content-container p, .content-container ul {
+            margin-bottom: 20px;
+        }
+        
+        .content-container ul {
+            padding-left: 20px;
+        }
+        
+        .content-container ul li {
+            margin-bottom: 8px;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .tab {
+            padding: 15px 25px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            font-weight: 600;
+        }
+        
+        .tab.active {
+            opacity: 1;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Known Issues Section */
+        .issue-card {
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .issue-card h4 {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .issue-status {
+            margin-left: 10px;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status-pending {
+            background-color: #ff9500;
+            color: black;
+        }
+        
+        .status-fixed {
+            background-color: var(--secondary-color);
+            color: black;
+        }
+        
+        .status-investigating {
+            background-color: #ff2d55;
+            color: black;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: var(--primary-color);
+        }
+        
+        .contact-form {
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: var(--light-text);
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #0062cc;
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background-color: var(--darker-bg);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style-type: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray-text);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .content-container {
+                padding: 25px;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                padding: 12px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Playscape Logo" style="height: 40px;">
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="features.html">Features</a>
+                    <a href="support.html">Support</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-page">
+        <div class="container">
+            <div class="content-container">
+                <h2>Support Center</h2>
+                
+                <div class="tabs">
+                    <div class="tab active" data-tab="known-issues">Known Issues</div>
+                    <div class="tab" data-tab="faq">FAQs</div>
+                    <div class="tab" data-tab="contact">Contact Us</div>
+                </div>
+                
+                <div id="known-issues" class="tab-content active">
+                    <h3>Known Issues & Workarounds</h3>
+                    <p>We're constantly working to improve Playscape. Here are some known issues we're currently addressing:</p>
+                    
+                    <div class="issue-card">
+                        <h4>Date Synchronization Issue <span class="issue-status status-pending">Fix in Progress</span></h4>
+                        <p>In the Create Game view, the date selector does not automatically sync to today's date.</p>
+                        <p><strong>Workaround:</strong> Manually select today's date when creating a new game.</p>
+                        <p><strong>Expected Fix:</strong> In our next update (v1.2.1), scheduled for release on May 5, 2025.</p>
+                    </div>
+                    
+                    <div class="issue-card">
+                        <h4>Delete Account Functionality <span class="issue-status status-investigating">Under Investigation</span></h4>
+                        <p>The Delete Account option in User Settings is currently not functioning as expected.</p>
+                        <p><strong>Workaround:</strong> To delete your account, please contact our support team at support@playscape-app.com with the subject line "Account Deletion Request".</p>
+                        <p><strong>Expected Fix:</strong> We're actively investigating this issue and expect to have it resolved in version 1.3.0.</p>
+                    </div>
+                    
+                    <div class="issue-card">
+                        <h4>Logout Redirect <span class="issue-status status-pending">Fix in Progress</span></h4>
+                        <p>When logging out, the app successfully logs you out but does not properly redirect to the login/splash screen.</p>
+                        <p><strong>Workaround:</strong> After logging out, manually close and reopen the app to return to the login screen.</p>
+                        <p><strong>Expected Fix:</strong> This will be addressed in our next update (v1.2.1), coming May 5, 2025.</p>
+                    </div>
+                    
+                    <div class="issue-card">
+                        <h4>Message Notification Count <span class="issue-status status-fixed">Fixed in v1.2.0</span></h4>
+                        <p>Message notification counts sometimes showed incorrect numbers of unread messages.</p>
+                        <p><strong>Status:</strong> This issue has been resolved in the latest app version. Please ensure you are running version 1.2.0 or higher.</p>
+                    </div>
+                    
+                    <h3>Update Schedule</h3>
+                    <p>We release updates regularly to improve performance, fix bugs, and introduce new features:</p>
+                    <ul>
+                        <li><strong>Version 1.2.1</strong> - Expected May 5, 2025: Fix for date synchronization and logout redirect issues</li>
+                        <li><strong>Version 1.3.0</strong> - Expected June, 2025: Major update including account management improvements and new community features</li>
+                    </ul>
+                    
+                    <p>To ensure you have the latest improvements, please keep your app updated through the App Store.</p>
+                </div>
+                
+                <div id="faq" class="tab-content">
+                    <h3>Frequently Asked Questions</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How do I create a new game?</div>
+                        <div class="faq-answer">
+                            <p>To create a new game:</p>
+                            <ol>
+                                <li>Go to the "My Hub" tab</li>
+                                <li>Tap "Create or join a game to get started"</li>
+                                <li>Fill in the game details including title, description, sport type, location, date, time, and skill level</li>
+                                <li>Set the maximum number of participants</li>
+                                <li>Choose whether the game should be public or invite-only</li>
+                                <li>Tap "Create Game"</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How do I join an existing game?</div>
+                        <div class="faq-answer">
+                            <p>You can join existing games in a few ways:</p>
+                            <ul>
+                                <li><strong>From My Hub:</strong> Browse the list of games and tap on one you'd like to join, then tap "Join"</li>
+                                <li><strong>Through Search:</strong> Use the search function to find games by sport, location, or date</li>
+                                <li><strong>Via Invites:</strong> If someone has invited you to a game, you can accept the invitation from the Network tab</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How do I message other players?</div>
+                        <div class="faq-answer">
+                            <p>To message another player:</p>
+                            <ol>
+                                <li>Go to the "Network" tab</li>
+                                <li>Tap on the person you want to message (or tap the "+" icon to start a new conversation)</li>
+                                <li>Type your message and tap send</li>
+                            </ol>
+                            <p>You can also message players from within a game by tapping on their profile and selecting "Message".</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Can I change my skill level?</div>
+                        <div class="faq-answer">
+                            <p>Yes, you can update your skill level for each sport separately:</p>
+                            <ol>
+                                <li>Go to your profile by tapping your profile icon</li>
+                                <li>Tap "Edit Profile"</li>
+                                <li>Scroll to "My Sports" section</li>
+                                <li>Select the sport and adjust your skill level</li>
+                                <li>Save your changes</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Is there an Android version available?</div>
+                        <div class="faq-answer">
+                            <p>Currently, Playscape is only available for iOS devices. We're actively developing an Android version, which we expect to release in late 2025. Sign up for our newsletter on the homepage to be notified when the Android version becomes available.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="contact" class="tab-content">
+                    <h3>Contact Us</h3>
+                    <p>Need help with something not covered in our support resources? We're here for you! Fill out the form below or reach us at the following:</p>
+                    
+                    <ul>
+                        <li><strong>Email:</strong> support@playscape-app.com</li>
+                        <li><strong>Support Hours:</strong> Monday-Friday, 9am-6pm PST</li>
+                        <li><strong>Response Time:</strong> Typically within 24 hours</li>
+                    </ul>
+                    
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" class="form-control">
+                                <option value="">Select a subject</option>
+                                <option value="bug">Report a Bug</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="account">Account Issue</option>
+                                <option value="billing">Billing Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Describe your issue or question in detail"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Playscape</h3>
+                    <p>Connect through sports. Build communities. Play together.</p>
+                    <div class="social-links">
+                        <a href="#"><span>fb</span></a>
+                        <a href="#"><span>tw</span></a>
+                        <a href="#"><span>ig</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>App</h3>
+                    <ul class="footer-links">
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Sports</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="support.html#known-issues">Known Issues</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Playscape. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to current tab and content
+                    tab.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

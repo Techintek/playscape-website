@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Playscape</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #007aff;
+            --secondary-color: #4cd964;
+            --dark-bg: #111111;
+            --darker-bg: #000000;
+            --light-text: #ffffff;
+            --gray-text: #8e8e93;
+            --card-bg: #1c1c1e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--darker-bg);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            padding-left: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/600') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Feature Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            max-width: 700px;
+            margin: -40px auto 60px;
+            color: var(--gray-text);
+        }
+        
+        .feature-showcase {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            margin-bottom: 100px;
+        }
+        
+        .feature-showcase:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .feature-info {
+            flex: 1;
+        }
+        
+        .feature-info h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .feature-info p {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+        
+        .feature-info ul {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        
+        .feature-info ul li {
+            margin-bottom: 10px;
+        }
+        
+        .feature-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .feature-image img {
+            max-width: 300px;
+            border-radius: 30px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .feature-badge {
+            display: inline-block;
+            background-color: rgba(0, 122, 255, 0.2);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* Sports Grid */
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .sport-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .sport-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .sport-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .sport-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--card-bg);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .quote {
+            font-size: 24px;
+            color: var(--primary-color);
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            padding-top: 15px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: var(--gray-text);
+            font-size: 14px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #0062cc;
+        }
+        
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 18px;
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background-color: var(--darker-bg);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style-type: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray-text);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .feature-showcase {
+                flex-direction: column !important;
+                text-align: center;
+                margin-bottom: 60px;
+            }
+            
+            .feature-info ul {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Playscape Logo" style="height: 40px;">
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="features.html">Features</a>
+                    <a href="support.html">Support</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Playscape Features</h1>
+                <p>Everything you need to organize, join, and enjoy sports with your local community.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Core Features</h2>
+                <p class="section-subtitle">Designed to make sports organization and participation seamless and social.</p>
+                
+                <div class="feature-showcase">
+                    <div class="feature-info">
+                        <div class="feature-badge">Game Management</div>
+                        <h2>Create & Join Games</h2>
+                        <p>Easily organize sports events or join games created by others in your community. Set up all the details and invite friends or open it to the public.</p>
+                        <ul>
+                            <li>Simple game creation with customizable details</li>
+                            <li>Choose from multiple sports options</li>
+                            <li>Set skill levels (Beginner, Intermediate, Advanced)</li>
+                            <li>Control participant limits</li>
+                            <li>Public or invite-only privacy settings</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="/api/placeholder/300/600" alt="Create Game Screen">
+                    </div>
+                </div>
+                
+                <div class="feature-showcase">
+                    <div class="feature-info">
+                        <div class="feature-badge">Social</div>
+                        <h2>Community & Networking</h2>
+                        <p>Connect with other sports enthusiasts, build your network, and make friends in your area who share your athletic interests.</p>
+                        <ul>
+                            <li>In-app messaging system</li>
+                            <li>Player profiles with sports preferences and skill levels</li>
+                            <li>Game history and participation stats</li>
+                            <li>Connect with regular teammates</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="/api/placeholder/300/600" alt="Network Screen">
+                    </div>
+                </div>
+                
+                <div class="feature-showcase">
+                    <div class="feature-info">
+                        <div class="feature-badge">Personalization</div>
+                        <h2>Sports & Interest Tracking</h2>
+                        <p>Follow your favorite sports and get notified about new games that match your interests and skill level.</p>
+                        <ul>
+                            <li>Personalized sports interest selection</li>
+                            <li>Game recommendations based on your preferences</li>
+                            <li>Customizable skill levels for each sport</li>
+                            <li>Health summary integration</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="/api/placeholder/300/600" alt="Sports Selection Screen">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: var(--card-bg);">
+            <div class="container">
+                <h2 class="section-title">Supported Sports</h2>
+                <p class="section-subtitle">Playscape supports a growing list of sports activities, with more being added regularly.</p>
+                
+                <div class="sports-grid">
+                    <div class="sport-card">
+                        <div class="sport-icon">🏈</div>
+                        <h3>Football</h3>
+                        <p>American football games of all sizes</p>
+                    </div>
+                    <div class="sport-card">
+                        <div class="sport-icon">⚽</div>
+                        <h3>Soccer</h3>
+                        <p>From small-sided to full 11v11 matches</p>
+                    </div>
+                    <div class="sport-card">
+                        <div class="sport-icon">🎾</div>
+                        <h3>Tennis</h3>
+                        <p>Singles, doubles, or group practice</p>
+                    </div>
+                    <div class="sport-card">
+                        <div class="sport-icon">🏀</div>
+                        <h3>Basketball</h3>
+                        <p>Pickup games, 3v3, or full-court 5v5</p>
+                    </div>
+                    <div class="sport-card">
+                        <div class="sport-icon">🏐</div>
+                        <h3>Volleyball</h3>
+                        <p>Indoor or beach volleyball games</p>
+                    </div>
+                    <div class="sport-card">
+                        <div class="sport-icon">⚾</div>
+                        <h3>Baseball</h3>
+                        <p>Traditional baseball or softball games</p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <p>Don't see your favorite sport? We're constantly adding more! Let us know what you'd like to see next.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Users Say</h2>
+                
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="quote">❝</div>
+                        <p class="testimonial-text">Playscape has completely transformed how I find tennis matches. I've met so many great players in my area and my game has improved immensely.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MJ</div>
+                            <div class="author-info">
+                                <h4>Michael Jordan</h4>
+                                <p>Tennis Enthusiast</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="quote">❝</div>
+                        <p class="testimonial-text">As someone who just moved to a new city, Playscape helped me not only find soccer games but also make new friends. The community is amazing!</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SG</div>
+                            <div class="author-info">
+                                <h4>Sarah Garcia</h4>
+                                <p>Soccer Player</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="quote">❝</div>
+                        <p class="testimonial-text">Organizing basketball games used to be a logistical nightmare with texts and group chats. Now I just create a game on Playscape and everything is handled.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JT</div>
+                            <div class="author-info">
+                                <h4>James Thompson</h4>
+                                <p>Basketball Organizer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Coming Soon</h2>
+                <p class="section-subtitle">We're constantly improving Playscape with new features.</p>
+                
+                <div class="feature-showcase">
+                    <div class="feature-info">
+                        <div class="feature-badge">New Feature</div>
+                        <h2>Team Management</h2>
+                        <p>Create and manage permanent teams for regular play. Includes:</p>
+                        <ul>
+                            <li>Team profiles with photos and descriptions</li>
+                            <li>Roster management</li>
+                            <li>Team chat functionality</li>
+                            <li>Team stats tracking</li>
+                            <li>League organization options</li>
+                        </ul>
+                        <p>Expected in version 1.3.0 (June 2025)</p>
+                    </div>
+                    <div class="feature-info">
+                        <div class="feature-badge">New Feature</div>
+                        <h2>Venue Partnerships</h2>
+                        <p>Book venues directly through the app. Includes:</p>
+                        <ul>
+                            <li>In-app court/field reservations</li>
+                            <li>Special discounts for Playscape users</li>
+                            <li>Venue reviews and ratings</li>
+                            <li>Facility information and amenities</li>
+                            <li>Available time slots at a glance</li>
+                        </ul>
+                        <p>Expected in version 1.4.0 (August 2025)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="section-title">Ready to Get Started?</h2>
+                <p style="max-width: 600px; margin: 0 auto 30px;">Download Playscape today and join thousands of sports enthusiasts in your area.</p>
+                <a href="#" class="btn btn-large">Download Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Playscape</h3>
+                    <p>Connect through sports. Build communities. Play together.</p>
+                    <div class="social-links">
+                        <a href="#"><span>fb</span></a>
+                        <a href="#"><span>tw</span></a>
+                        <a href="#"><span>ig</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>App</h3>
+                    <ul class="footer-links">
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Sports</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="support.html#known-issues">Known Issues</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Playscape. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

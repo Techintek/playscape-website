@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Playscape</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #007aff;
+            --secondary-color: #4cd964;
+            --dark-bg: #111111;
+            --darker-bg: #000000;
+            --light-text: #ffffff;
+            --gray-text: #8e8e93;
+            --card-bg: #1c1c1e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--darker-bg);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            padding-left: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Content Page Styles */
+        .content-page {
+            padding: 60px 0;
+        }
+        
+        .content-container {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 900px;
+        }
+        
+        .content-container h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .content-container h3 {
+            font-size: 22px;
+            margin: 30px 0 15px;
+        }
+        
+        .content-container p, .content-container ul {
+            margin-bottom: 20px;
+        }
+        
+        .content-container ul {
+            padding-left: 20px;
+        }
+        
+        .content-container ul li {
+            margin-bottom: 8px;
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background-color: var(--darker-bg);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style-type: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--gray-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray-text);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .content-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="logo.png" alt="Playscape Logo" style="height: 40px;">
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="features.html">Features</a>
+                    <a href="support.html">Support</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-page">
+        <div class="container">
+            <div class="content-container">
+                <h2>Privacy Policy</h2>
+                <p>Last Updated: April 25, 2025</p>
+                
+                <h3>Introduction</h3>
+                <p>Welcome to Playscape ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Playscape mobile application and related services (collectively, the "Service").</p>
+                <p>Please read this Privacy Policy carefully. By accessing or using the Service, you acknowledge that you have read, understood, and agree to be bound by the terms of this Privacy Policy. If you do not agree with our policies and practices, please do not use the Service.</p>
+                
+                <h3>Information We Collect</h3>
+                <p>We collect several types of information from and about users of our Service:</p>
+                <ul>
+                    <li><strong>Personal Information:</strong> We may collect personally identifiable information such as your name, email address, telephone number, and profile picture when you register for an account.</li>
+                    <li><strong>Location Information:</strong> With your consent, we collect and process information about your precise location to provide location-based services, such as finding nearby sports games and venues.</li>
+                    <li><strong>Activity Information:</strong> We collect information about your activity on the Service, including games you create or join, messages you send, and your interactions with other users.</li>
+                    <li><strong>Device Information:</strong> We collect device-specific information such as your hardware model, operating system version, unique device identifiers, and mobile network information.</li>
+                    <li><strong>Usage Data:</strong> We automatically collect information about your use of the Service, including your access times, actions taken, and preferences.</li>
+                </ul>
+                
+                <h3>How We Use Your Information</h3>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Provide, maintain, and improve the Service</li>
+                    <li>Process and complete transactions</li>
+                    <li>Send you technical notices, updates, security alerts, and administrative messages</li>
+                    <li>Respond to your comments, questions, and requests</li>
+                    <li>Provide customer service and support</li>
+                    <li>Facilitate game creation, joining, and management</li>
+                    <li>Connect you with other users based on shared interests and locations</li>
+                    <li>Personalize your experience and deliver content relevant to your interests</li>
+                    <li>Monitor and analyze trends, usage, and activities in connection with the Service</li>
+                    <li>Detect, investigate, and prevent fraudulent transactions and other illegal activities</li>
+                    <li>Protect the rights and property of Playscape and others</li>
+                </ul>
+                
+                <h3>Sharing of Your Information</h3>
+                <p>We may share the information we collect in various ways, including:</p>
+                <ul>
+                    <li><strong>With Other Users:</strong> When you create a game or join a game, certain information such as your name, profile picture, and skill level will be visible to other users.</li>
+                    <li><strong>With Service Providers:</strong> We may share your information with third-party vendors, consultants, and other service providers who need access to such information to perform work on our behalf.</li>
+                    <li><strong>For Legal Reasons:</strong> We may disclose your information if we believe it is necessary to comply with a legal obligation, protect and defend our rights or property, protect the safety of our users or the public, or to detect, prevent, or otherwise address fraud, security, or technical issues.</li>
+                    <li><strong>Business Transfers:</strong> If we are involved in a merger, acquisition, or sale of all or a portion of our assets, your information may be transferred as part of that transaction.</li>
+                </ul>
+                
+                <h3>Data Retention</h3>
+                <p>We will retain your personal information only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your information to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our policies.</p>
+                
+                <h3>Your Choices</h3>
+                <p>You can make the following choices regarding your personal information:</p>
+                <ul>
+                    <li><strong>Account Information:</strong> You can update your account information at any time by logging into your account and editing your profile.</li>
+                    <li><strong>Location Information:</strong> You can choose whether to allow the app to collect and use real-time location information through your device settings.</li>
+                    <li><strong>Push Notifications:</strong> You can opt out of receiving push notifications through your device settings.</li>
+                    <li><strong>Cookies:</strong> You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.</li>
+                    <li><strong>Delete Your Account:</strong> You can delete your account at any time through the app settings. Please note that some information may be retained in our backup files or as required by law.</li>
+                </ul>
+                
+                <h3>Security</h3>
+                <p>We have implemented appropriate technical and organizational measures to protect the security of your personal information. However, please remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
+                
+                <h3>Children's Privacy</h3>
+                <p>Our Service is not intended for children under the age of 13, and we do not knowingly collect personal information from children under 13. If we learn that we have collected personal information from a child under 13, we will promptly delete that information.</p>
+                
+                <h3>International Data Transfers</h3>
+                <p>Your information may be transferred to — and maintained on — computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ from those in your jurisdiction. If you are located outside the United States and choose to provide information to us, please note that we transfer the data to the United States and process it there.</p>
+                
+                <h3>Changes to This Privacy Policy</h3>
+                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top of this Privacy Policy. You are advised to review this Privacy Policy periodically for any changes.</p>
+                
+                <h3>Contact Us</h3>
+                <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                <p>Email: takshjoshi04@gmail.com</p>
+                <p>Address: Playscape Inc., 2026,Jal Vayu vihar,Sector-67,Mohali,Punjab,India  160062</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Playscape</h3>
+                    <p>Connect through sports. Build communities. Play together.</p>
+                    <div class="social-links">
+                        <a href="#"><span>fb</span></a>
+                        <a href="#"><span>tw</span></a>
+                        <a href="#"><span>ig</span></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>App</h3>
+                    <ul class="footer-links">
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Sports</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="support.html">Help Center</a></li>
+                        <li><a href="support.html#known-issues">Known Issues</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Playscape. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
